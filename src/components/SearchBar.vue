@@ -1,20 +1,12 @@
 <script setup>
-const query = "";
-
-const goToAbout = () => {
-
-}
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <div class="search-bar">
-    <input
-      type="text"
-      @submit.prevent="goToAbout"
-      v-model="query"
-      class="input"
-      name="query"
-    />
-    <button>Submit</button>
-  </div>
+  <form action="/about">
+    <div class="search-bar">
+      <input type="text" class="input" />
+      <input type="submit" />
+    </div>
+  </form>
 </template>
