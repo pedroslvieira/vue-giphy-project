@@ -3,7 +3,19 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <RouterView />
+  <div class="content">
+    <Router-Link to="/"> Home </Router-Link>
+    <Router-Link to="/about"> About </Router-Link>
+    <router-view v-slot="{ Component, route }">
+      <transition
+        :enter-active-class="route.meta.enterClass"
+        :leave-active-class="route.meta.leaveClass"
+        mode="out-in"
+      >
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </div>
 </template>
 
 <style>
@@ -63,6 +75,16 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-out;
 }
 
 @media (min-width: 1024px) {

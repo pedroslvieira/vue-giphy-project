@@ -6,7 +6,10 @@ import { RouterLink, RouterView } from "vue-router";
   <form action="/about">
     <div class="search-bar">
       <input type="text" class="input" />
-      <input type="submit" />
+      <!-- <input type="submit" /> -->
+      <button>
+        <Router-Link to="/about"> Submit </Router-Link>
+      </button>
     </div>
   </form>
 </template>
